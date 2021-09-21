@@ -263,9 +263,10 @@ data "aws_iam_policy_document" "master_password_ssm_permissions" {
   statement {
     effect = "Allow"
     actions = [
-      "ssm:GetParameter",
+      "ssm:*",
     ]
-    resources = [join("", data.aws_ssm_parameter.master_password.*.arn)]
+    # resources = [join("", data.aws_ssm_parameter.master_password.*.arn)]
+    resources = ["*"]
   }
 }
 
