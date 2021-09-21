@@ -261,9 +261,9 @@ class DBProvisioner(object):
         )
 
         engine: str = instance.get('Engine')
-        if engine == 'postgres':
+        if engine == 'postgres' or engine == 'aurora-postgresql':
             self.provision_postgres_db(db_info)
-        elif engine == 'mysql':
+        elif engine == 'mysql' or engine == 'aurora-mysql':
             self.provision_mysql_db(db_info)
         else:
             raise NotImplementedError('{} engine is not supported'.format(engine))
